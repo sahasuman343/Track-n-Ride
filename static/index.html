@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Bike Ride Tracker</title>
+    <meta name="description" content="Real-time location tracking for group bike rides">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>🚴 Bike Tracker</h1>
+                <p>Join your group ride and share your location</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Your Name</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="Enter your name"
+                        required
+                        autocomplete="off"
+                    >
+                </div>
+                <button type="submit" class="btn" id="loginBtn">
+                    Start Riding
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- App Screen -->
+    <div id="appScreen">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <h2>🚴 Bike Tracker</h2>
+                <span class="user-badge" id="currentUser"></span>
+            </div>
+            <button class="btn-logout" id="logoutBtn">Logout</button>
+        </header>
+
+        <!-- Main Content -->
+        <div class="app-content">
+            <!-- Map -->
+            <div id="map"></div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h3>Active Riders</h3>
+                    <p id="riderCount">0 riders online</p>
+                </div>
+                <div class="riders-list" id="ridersList">
+                    <!-- Riders will be added dynamically -->
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- App JS -->
+    <script src="/app.js"></script>
+</body>
+</html>
