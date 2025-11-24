@@ -1,45 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group Bike Ride Tracker</title>
     <meta name="description" content="Real-time location tracking for group bike rides">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
     <!-- Login Screen -->
     <div id="loginScreen">
         <div class="login-container">
             <div class="login-header">
                 <h1>🚴 Bike Tracker</h1>
-                <p>Join your group ride and share your location</p>
+                <p>Create a group ride or join friends</p>
             </div>
             <form id="loginForm" class="login-form">
                 <div class="form-group">
                     <label for="username">Your Name</label>
-                    <input 
-                        type="text" 
-                        id="username" 
-                        name="username" 
-                        placeholder="Enter your name"
-                        required
-                        autocomplete="off"
-                    >
+                    <input type="text" id="username" name="username" placeholder="Enter your name" required
+                        autocomplete="off">
                 </div>
-                <button type="submit" class="btn" id="loginBtn">
-                    Start Riding
-                </button>
+
+                <div class="form-group" id="rideIdGroup" style="display: none;">
+                    <label for="rideId">Ride ID</label>
+                    <input type="text" id="rideId" name="rideId" placeholder="Enter Ride ID" autocomplete="off">
+                </div>
+
+                <div class="action-buttons">
+                    <button type="submit" class="btn btn-primary" id="createBtn" name="action" value="create">
+                        Create New Ride
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="joinBtnToggle">
+                        Join Existing Ride
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="joinBtn" name="action" value="join"
+                        style="display: none;">
+                        Join Ride
+                    </button>
+                </div>
+
+                <p id="backToCreate" class="text-link" style="display: none;">Back to Create</p>
             </form>
         </div>
     </div>
@@ -51,8 +61,14 @@
             <div class="header-left">
                 <h2>🚴 Bike Tracker</h2>
                 <span class="user-badge" id="currentUser"></span>
+                <span class="ride-badge" id="currentRideId" style="display: none;"></span>
             </div>
-            <button class="btn-logout" id="logoutBtn">Logout</button>
+            <div class="header-right">
+                <button class="btn-share" id="shareBtn">
+                    Share Ride
+                </button>
+                <button class="btn-logout" id="logoutBtn">Logout</button>
+            </div>
         </header>
 
         <!-- Main Content -->
@@ -73,10 +89,10 @@
         </div>
     </div>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
+    <!-- Google Maps API will be loaded dynamically with API key from backend -->
+
     <!-- App JS -->
     <script src="/app.js"></script>
 </body>
+
 </html>

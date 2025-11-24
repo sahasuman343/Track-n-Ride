@@ -52,6 +52,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -140,6 +141,59 @@ body {
     transform: none;
 }
 
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.text-link {
+    text-align: center;
+    color: var(--primary-light);
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+
 /* App Screen */
 #appScreen {
     display: none;
@@ -179,6 +233,45 @@ body {
     color: var(--primary-light);
 }
 
+.ride-badge {
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid var(--secondary);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: var(--secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.ride-badge:hover {
+    background: rgba(16, 185, 129, 0.3);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-share {
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-share:hover {
+    background: var(--secondary);
+    color: white;
+}
+
+
 .btn-logout {
     background: rgba(239, 68, 68, 0.2);
     border: 1px solid var(--danger);
@@ -190,6 +283,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 
 .btn-logout:hover {
     background: var(--danger);
@@ -260,6 +354,7 @@ body {
         opacity: 0;
         transform: translateX(20px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -311,9 +406,12 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.5;
     }
@@ -340,6 +438,7 @@ body {
         opacity: 0;
         transform: translateX(-50%) translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateX(-50%) translateY(0);
@@ -413,11 +512,11 @@ body {
         transition: transform 0.3s ease;
         z-index: 999;
     }
-    
+
     .sidebar.open {
         transform: translateX(0);
     }
-    
+
     .login-container {
         padding: 32px 24px;
     }
